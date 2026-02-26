@@ -42,6 +42,8 @@ int main() {
         int client_fd = accept(server_fd, NULL, NULL);
         if (client_fd < 0) continue;
         
+        std::string body = "Served by backend: " + std::string(hostname) + "\n";
+
         // Simple HTTP response
         std::string response = "HTTP/1.1 200 OK\r\n";
         response += "Content-Type: text/plain\r\n";
